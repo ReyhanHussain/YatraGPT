@@ -6,6 +6,7 @@ import { initChatbot } from './chatbot.js';
 import initItineraryBuilder from './itineraryBuilder.js';
 import initEcoCalculator from './ecoCalculator.js';
 import initCultureMatch from './cultureMatch.js';
+import { initHiddenGems } from './hidden-gems.js';
 import initScrollAnimations from './animations.js';
 import initModals from './modal.js';
 import { initTranslations } from './translation.js';
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initItineraryBuilder();
     initEcoCalculator();
     initCultureMatch();
+    initHiddenGems();
     
     console.log('YatraGPT application initialized successfully');
 }); 

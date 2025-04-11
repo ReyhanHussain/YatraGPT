@@ -21,6 +21,9 @@
 /* Culture Match section */
 @import url('./culture-match.css');
 
+/* Hidden Gems section */
+@import url('./hidden-gems.css');
+
 /* Profile Modal styles */
 @import url('./profile-modal.css');
 

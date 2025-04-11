@@ -114,6 +114,9 @@ const modalConfig = {
                 </div>
             </div>
         `
+    },
+    'hidden-gems-modal': {
+        useExisting: true // This indicates that we should use the existing modal in the DOM
     }
 };
 
@@ -127,6 +130,19 @@ function showModal(modalId) {
     
     // Get modal configuration
     const config = modalConfig[modalId];
+    
+    // If it's a modal that already exists in the DOM, just show it
+    if (config.useExisting) {
+        const existingModal = document.getElementById(modalId);
+        if (existingModal) {
+            existingModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+            return;
+        } else {
+            console.error(`Existing modal not found with ID: ${modalId}`);
+            return;
+        }
+    }
     
     // Create modal element
     const modal = document.createElement('div');
@@ -173,8 +189,30 @@ function showModal(modalId) {
 
 // Close modal
 function closeModal(modal) {
+    // If no specific modal is provided, close all visible modals
+    if (!modal) {
+        const visibleModals = document.querySelectorAll('.modal.show');
+        visibleModals.forEach(m => {
+            m.classList.remove('show');
+            
+            // Only remove dynamically created modals
+            if (m.id && m.id.startsWith('modal-')) {
+                setTimeout(() => m.remove(), 300);
+            }
+        });
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        return;
+    }
+    
+    // Close specific modal
     modal.classList.remove('show');
-    setTimeout(() => modal.remove(), 300); // Remove after transition
+    
+    // If it's a dynamic modal (not an existing one in the HTML), remove it after animation
+    if (modal.id && modal.id.startsWith('modal-')) {
+        setTimeout(() => modal.remove(), 300);
+    }
+    
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
 }
 
 // Initialize modals
@@ -189,6 +227,14 @@ function initModals() {
             const modalId = trigger.getAttribute('data-modal');
             showModal(modalId);
         });
+    });
+    
+    // Add global escape key handler
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            // Close all open modals
+            closeModal();
+        }
     });
     
     // Event delegation for Apply Now buttons
