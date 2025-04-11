@@ -30,8 +30,8 @@
 /* Fullscreen Interface styles */
 @import url('./fullscreen-interface.css');
 
-/* Memoir Mint section */
-@import url('./memoir-mint.css');
+/* Language Selector */
+@import url('./language-selector.css');
 
 /* Chatbot */
 @import url('./chatbot.css');

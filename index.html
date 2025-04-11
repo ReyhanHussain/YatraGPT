@@ -20,12 +20,20 @@
             </div>
             <div class="nav-links">
                 <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#itinerary">Itinerary Builder</a></li>
-                    <li><a href="#eco-calculator">Eco Calculator</a></li>
-                    <li><a href="#culture-match">CultureMatch</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#features" data-translate="features">Features</a></li>
+                    <li><a href="#itinerary" data-translate="itineraryBuilder">Itinerary Builder</a></li>
+                    <li><a href="#eco-calculator" data-translate="ecoCalculator">Eco Calculator</a></li>
+                    <li><a href="#culture-match" data-translate="cultureMatch">CultureMatch</a></li>
+                    <li><a href="#contact" data-translate="contact">Contact</a></li>
                 </ul>
+            </div>
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <div class="language-options">
+                    <div class="language-option active" data-lang="en">EN</div>
+                    <div class="language-option" data-lang="hi">HI</div>
+                    <div class="language-option" data-lang="kn">KN</div>
+                </div>
             </div>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -38,11 +46,11 @@
     <main>
         <section id="hero" class="hero">
             <div class="hero-content">
-                <h1>A Cultural Odyssey Through Technology</h1>
-                <p>Reimagine cultural tourism with AI-driven personalization, community engagement, and sustainability tracking.</p>
+                <h1 data-translate="heroTitle">A Cultural Odyssey Through Technology</h1>
+                <p data-translate="heroDescription">Reimagine cultural tourism with AI-driven personalization, community engagement, and sustainability tracking.</p>
                 <div class="hero-cta">
-                    <button class="btn primary">Start Your Journey</button>
-                    <button class="btn secondary">Learn More</button>
+                    <button class="btn primary" data-translate="startJourney">Start Your Journey</button>
+                    <button class="btn secondary" data-translate="learnMore">Learn More</button>
                 </div>
             </div>
             <div class="hero-visual">
@@ -51,31 +59,25 @@
         </section>
 
         <section id="features" class="features">
-            <h2 class="section-title">Discover Our Unique Features</h2>
+            <h2 class="section-title" data-translate="discoverFeatures">Discover Our Unique Features</h2>
             <div class="feature-cards">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-route"></i></div>
-                    <h3>AI-Powered Itinerary Builder</h3>
-                    <p>Create personalized, day-by-day travel plans blending must-see landmarks with hidden cultural gems.</p>
-                    <a href="#itinerary" class="feature-link">Explore <i class="fas fa-arrow-right"></i></a>
+                    <h3 data-translate="aiItineraryTitle">AI-Powered Itinerary Builder</h3>
+                    <p data-translate="aiItineraryDesc">Create personalized, day-by-day travel plans blending must-see landmarks with hidden cultural gems.</p>
+                    <a href="#itinerary" class="feature-link"><span data-translate="explore">Explore</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-leaf"></i></div>
-                    <h3>Eco-Cultural Footprint</h3>
-                    <p>Calculate your environmental impact and discover sustainable alternatives for your journey.</p>
-                    <a href="#eco-calculator" class="feature-link">Calculate <i class="fas fa-arrow-right"></i></a>
+                    <h3 data-translate="ecoFootprintTitle">Eco-Cultural Footprint</h3>
+                    <p data-translate="ecoFootprintDesc">Calculate your environmental impact and discover sustainable alternatives for your journey.</p>
+                    <a href="#eco-calculator" class="feature-link"><span data-translate="calculate">Calculate</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fas fa-users"></i></div>
-                    <h3>CultureMatch</h3>
-                    <p>Connect with local guides and like-minded travelers for authentic cultural experiences.</p>
-                    <a href="#culture-match" class="feature-link">Connect <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-book"></i></div>
-                    <h3>MemoirMint</h3>
-                    <p>Transform your memories into digital scrapbooks enriched with historical context.</p>
-                    <a href="#memoir-mint" class="feature-link">Create <i class="fas fa-arrow-right"></i></a>
+                    <h3 data-translate="cultureMatchTitle">CultureMatch</h3>
+                    <p data-translate="cultureMatchDesc">Connect with local guides and like-minded travelers for authentic cultural experiences.</p>
+                    <a href="#culture-match" class="feature-link"><span data-translate="connect">Connect</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -83,42 +85,42 @@
         <section id="itinerary" class="itinerary">
             <div class="section-container">
                 <div class="section-content">
-                    <h2 class="section-title">AI-Powered Cultural Itinerary Builder</h2>
-                    <p class="section-description">Let our advanced AI create the perfect cultural journey tailored to your preferences.</p>
+                    <h2 class="section-title" data-translate="itineraryTitle">AI-Powered Cultural Itinerary Builder</h2>
+                    <p class="section-description" data-translate="itineraryDesc">Let our advanced AI create the perfect cultural journey tailored to your preferences.</p>
                     <div class="itinerary-form">
                         <div class="form-group">
-                            <label for="destination">Destination</label>
-                            <input type="text" id="destination" placeholder="Where are you going?">
+                            <label for="destination" data-translate="destination">Destination</label>
+                            <input type="text" id="destination" placeholder="Where are you going?" data-translate="whereGoing">
                         </div>
                         <div class="form-group">
-                            <label for="duration">Trip Duration</label>
+                            <label for="duration" data-translate="tripDuration">Trip Duration</label>
                             <select id="duration">
-                                <option value="2">Weekend (2 days)</option>
-                                <option value="3">Short Trip (3 days)</option>
-                                <option value="5">Medium Trip (5 days)</option>
-                                <option value="7">One Week (7 days)</option>
-                                <option value="14">Two Weeks (14 days)</option>
+                                <option value="2" data-translate="weekend">Weekend (2 days)</option>
+                                <option value="3" data-translate="shortTrip">Short Trip (3 days)</option>
+                                <option value="5" data-translate="mediumTrip">Medium Trip (5 days)</option>
+                                <option value="7" data-translate="oneWeek">One Week (7 days)</option>
+                                <option value="14" data-translate="twoWeeks">Two Weeks (14 days)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Interests</label>
+                            <label data-translate="interests">Interests</label>
                             <div class="interests-container">
                                 <div class="interest-tag">Art <i class="fas fa-times"></i></div>
                                 <div class="interest-tag">History <i class="fas fa-times"></i></div>
                                 <div class="interest-tag">Cuisine <i class="fas fa-times"></i></div>
                                 <div class="interest-tag">Architecture <i class="fas fa-times"></i></div>
-                                <input type="text" id="add-interest" placeholder="Add interest...">
+                                <input type="text" id="add-interest" placeholder="Add interest..." data-translate="addInterest">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="pace">Travel Pace</label>
+                            <label for="pace" data-translate="travelPace">Travel Pace</label>
                             <div class="slider-container">
-                                <span>Relaxed</span>
+                                <span data-translate="relaxed">Relaxed</span>
                                 <input type="range" id="pace" min="1" max="5" value="3">
-                                <span>Intense</span>
+                                <span data-translate="intense">Intense</span>
                             </div>
                         </div>
-                        <button class="btn primary generate-btn">Generate Itinerary</button>
+                        <button class="btn primary generate-btn" data-translate="generateItinerary">Generate Itinerary</button>
                     </div>
                 </div>
                 <div class="section-visual">
@@ -153,74 +155,96 @@
         </section>
 
         <section id="eco-calculator" class="eco-calculator">
-            <h2 class="section-title">Eco-Cultural Footprint Calculator</h2>
-            <p class="section-description">Measure the environmental and cultural impact of your journey.</p>
+            <h2 class="section-title" data-translate="ecoCalculatorTitle">Eco-Cultural Footprint Calculator</h2>
+            <p class="section-description" data-translate="ecoCalculatorDesc">Measure the environmental and cultural impact of your journey.</p>
             
             <div class="calculator-container">
                 <div class="calculator-form">
                     <div class="form-group">
-                        <label>Transportation</label>
+                        <label data-translate="transportation">Transportation</label>
                         <div class="transport-options">
                             <div class="transport-option selected">
                                 <i class="fas fa-plane"></i>
-                                <span>Flight</span>
+                                <span data-translate="flight">Flight</span>
                             </div>
                             <div class="transport-option">
                                 <i class="fas fa-train"></i>
-                                <span>Train</span>
+                                <span data-translate="train">Train</span>
                             </div>
                             <div class="transport-option">
                                 <i class="fas fa-bus"></i>
-                                <span>Bus</span>
+                                <span data-translate="bus">Bus</span>
                             </div>
                             <div class="transport-option">
                                 <i class="fas fa-car"></i>
-                                <span>Car</span>
+                                <span data-translate="car">Car</span>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="distance">Distance (km)</label>
+                        <label for="distance" data-translate="distance">Distance (km)</label>
                         <input type="number" id="distance" value="1000">
                     </div>
                     <div class="form-group">
-                        <label for="accommodation">Accommodation Type</label>
+                        <label for="accommodation" data-translate="accommodationType">Accommodation Type</label>
                         <select id="accommodation">
-                            <option value="hotel">Hotel</option>
-                            <option value="hostel">Hostel</option>
-                            <option value="apartment">Apartment</option>
-                            <option value="eco-lodge">Eco Lodge</option>
-                            <option value="homestay">Homestay</option>
+                            <option value="hotel" data-translate="hotel">Hotel</option>
+                            <option value="hostel" data-translate="hostel">Hostel</option>
+                            <option value="apartment" data-translate="apartment">Apartment</option>
+                            <option value="eco-lodge" data-translate="ecoLodge">Eco Lodge</option>
+                            <option value="homestay" data-translate="homestay">Homestay</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Cultural Activities</label>
+                        <label data-translate="culturalActivities">Cultural Activities</label>
                         <div class="activity-options">
                             <div class="activity-option" data-value="museums">
                                 <i class="fas fa-landmark"></i>
-                                <span>Museums & Galleries</span>
+                                <span data-translate="museumsGalleries">Museums & Galleries</span>
                             </div>
                             <div class="activity-option" data-value="historical">
                                 <i class="fas fa-monument"></i>
-                                <span>Historical Sites</span>
+                                <span data-translate="historicalSites">Historical Sites</span>
                             </div>
                             <div class="activity-option" data-value="festivals">
                                 <i class="fas fa-music"></i>
-                                <span>Local Festivals</span>
+                                <span data-translate="localFestivals">Local Festivals</span>
                             </div>
                             <div class="activity-option" data-value="workshops">
                                 <i class="fas fa-hands"></i>
-                                <span>Traditional Workshops</span>
+                                <span data-translate="traditionalWorkshops">Traditional Workshops</span>
                             </div>
                             <div class="activity-option" data-value="food">
                                 <i class="fas fa-utensils"></i>
-                                <span>Local Cuisine</span>
+                                <span data-translate="localCuisine">Local Cuisine</span>
                             </div>
                         </div>
                     </div>
-                    <button class="btn primary calculate-btn">Calculate Footprint</button>
+                    <button class="btn primary calculate-btn" data-translate="calculateFootprint">Calculate Footprint</button>
+                    
+                    <!-- Added informational section below the calculate button -->
+                    <div class="calculator-info">
+                        <div class="info-icon">
+                            <i class="fas fa-info"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>About the Eco-Cultural Calculator</h4>
+                            <ul>
+                                <li>Measures both environmental impact and cultural exchange value</li>
+                                <li>Based on data from EPA, IPCC, and academic tourism studies</li>
+                                <li>Helps you make more sustainable travel choices</li>
+                                <li>Offers actionable recommendations to enhance your cultural experience</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="calculator-results">
+                    <div class="placeholder-message">
+                        <div class="calculator-logo">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <p>Click the Calculate Footprint button to see your travel impact analysis</p>
+                    </div>
                     <div class="results-card">
                         <h3>Your Impact</h3>
                         <div class="impact-meters">
@@ -254,21 +278,22 @@
                                 <li>Support local artisans through workshops</li>
                             </ul>
                         </div>
+                        <!-- Carbon Offset section will be dynamically added after calculation -->
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="culture-match" class="culture-match">
-            <h2 class="section-title">CultureMatch</h2>
-            <p class="section-description">Connect with locals and like-minded travelers for authentic experiences.</p>
+            <h2 class="section-title" data-translate="cultureMatchSectionTitle">CultureMatch</h2>
+            <p class="section-description" data-translate="cultureMatchSectionDesc">Connect with locals and like-minded travelers for authentic experiences.</p>
             
             <div class="match-container">
                 <div class="match-preview">
                     <div class="preview-cards">
                         <div class="preview-card">
                             <div class="preview-img" style="background-image: url('https://source.unsplash.com/random/400x400/?italian,man')"></div>
-                            <div class="preview-badge">Local Guide</div>
+                            <div class="preview-badge" data-translate="localGuide">Local Guide</div>
                             <div class="preview-info">
                                 <h3>Marco, 34</h3>
                                 <p>Florence, Italy</p>
@@ -280,7 +305,7 @@
                         </div>
                         <div class="preview-card">
                             <div class="preview-img" style="background-image: url('https://source.unsplash.com/random/400x400/?japanese,woman')"></div>
-                            <div class="preview-badge">Local Guide</div>
+                            <div class="preview-badge" data-translate="localGuide">Local Guide</div>
                             <div class="preview-info">
                                 <h3>Yuki, 29</h3>
                                 <p>Kyoto, Japan</p>
@@ -292,7 +317,7 @@
                         </div>
                         <div class="preview-card">
                             <div class="preview-img" style="background-image: url('https://source.unsplash.com/random/400x400/?french,woman')"></div>
-                            <div class="preview-badge">Traveler</div>
+                            <div class="preview-badge" data-translate="traveler">Traveler</div>
                             <div class="preview-info">
                                 <h3>Sophie, 27</h3>
                                 <p>Paris, France</p>
@@ -308,7 +333,7 @@
                     </div>
                 </div>
                 <div class="match-explanation">
-                    <h3>Cultural Connections Database</h3>
+                    <h3 data-translate="culturalConnectionsDb">Cultural Connections Database</h3>
                     <div class="step-cards">
                         <div class="step-card">
                             <div class="step-number">1</div>
@@ -326,68 +351,7 @@
                             <p>Message your matches and plan authentic cultural experiences together, guided by locals or shared with fellow travelers.</p>
                         </div>
                     </div>
-                    <button class="btn primary">Create Profile</button>
-                </div>
-            </div>
-        </section>
-        
-        <section id="memoir-mint" class="memoir-mint">
-            <h2 class="section-title">MemoirMint</h2>
-            <p class="section-description">Transform your travel memories into digital scrapbooks with historical context.</p>
-            
-            <div class="memoir-container">
-                <div class="memoir-preview">
-                    <div class="scrapbook">
-                        <div class="scrapbook-page">
-                            <div class="page-header">
-                                <h3>Florence Journey</h3>
-                                <p>June 2023</p>
-                            </div>
-                            <div class="memory-grid">
-                                <div class="memory-item" style="background-image: url('https://source.unsplash.com/random/300x300/?florence')">
-                                    <div class="memory-caption">Ponte Vecchio at sunset</div>
-                                </div>
-                                <div class="memory-item" style="background-image: url('https://source.unsplash.com/random/300x300/?italian-food')">
-                                    <div class="memory-caption">First authentic Italian pasta</div>
-                                </div>
-                                <div class="memory-item" style="background-image: url('https://source.unsplash.com/random/300x300/?tuscany')">
-                                    <div class="memory-caption">Tuscan countryside tour</div>
-                                </div>
-                                <div class="memory-item historical">
-                                    <div class="memory-fact">
-                                        <h4>Did You Know?</h4>
-                                        <p>Ponte Vecchio is the only bridge in Florence that wasn't destroyed during World War II. Legend says Hitler himself ordered it to be spared.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="memoir-creator">
-                    <h3>Create Your Digital Memoir</h3>
-                    <p>Upload your photos and notes, and we'll transform them into a beautiful digital scrapbook enhanced with historical context.</p>
-                    <div class="upload-area">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <p>Drag & drop photos or click to upload</p>
-                        <input type="file" id="photo-upload" multiple hidden>
-                    </div>
-                    <div class="form-group">
-                        <label for="journey-title">Journey Title</label>
-                        <input type="text" id="journey-title" placeholder="My Amazing Adventure">
-                    </div>
-                    <div class="form-group">
-                        <label for="journey-dates">Journey Dates</label>
-                        <div class="date-inputs">
-                            <input type="date" id="journey-start">
-                            <span>to</span>
-                            <input type="date" id="journey-end">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="journey-description">Journey Description</label>
-                        <textarea id="journey-description" placeholder="Share a brief description of your journey..."></textarea>
-                    </div>
-                    <button class="btn primary">Create Memoir</button>
+                    <button class="btn primary" data-translate="createProfile">Create Profile</button>
                 </div>
             </div>
         </section>
@@ -403,10 +367,9 @@
                 <div class="footer-column">
                     <h3>Features</h3>
                     <ul>
-                        <li><a href="#itinerary">AI Itinerary Builder</a></li>
-                        <li><a href="#eco-calculator">Eco-Cultural Calculator</a></li>
-                        <li><a href="#culture-match">CultureMatch</a></li>
-                        <li><a href="#memoir-mint">MemoirMint</a></li>
+                        <li><a href="#itinerary" data-translate="itineraryBuilder">AI Itinerary Builder</a></li>
+                        <li><a href="#eco-calculator" data-translate="ecoCalculator">Eco-Cultural Calculator</a></li>
+                        <li><a href="#culture-match" data-translate="cultureMatch">CultureMatch</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -437,19 +400,19 @@
                     <a href="#"><i class="fab fa-pinterest"></i></a>
                 </div>
                 <div class="newsletter">
-                    <input type="email" placeholder="Join our newsletter">
-                    <button class="btn primary">Subscribe</button>
+                    <input type="email" placeholder="Join our newsletter" data-translate="joinNewsletter">
+                    <button class="btn primary" data-translate="subscribe">Subscribe</button>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>&copy; 2025 YatraGPT. All rights reserved.</p>
+            <p data-translate="copyright">&copy; 2025 YatraGPT. All rights reserved.</p>
         </div>
     </footer>
 
     <div class="floating-chat-button">
         <i class="fas fa-comments"></i>
-        <span class="chat-tooltip">Ask our Cultural AI!</span>
+        <span class="chat-tooltip" data-translate="askCulturalAI">Ask our Cultural AI!</span>
     </div>
 
     <script type="module" src="js/main.js"></script>

@@ -30,7 +30,6 @@ YatraGPT bridges the gap between cultural exploration and modern technology by:
 1. **Empowering Travelers**: Personalized tools help users discover unique cultural experiences while respecting local traditions.  
 2. **Promoting Sustainability**: The Eco-Cultural Footprint Calculator encourages eco-friendly travel practices, ensuring tourism contributes positively to the environment and local economies.  
 3. **Fostering Connections**: CultureMatch builds bridges between travelers and local communities, creating opportunities for authentic cultural exchange.  
-4. **Preserving Memories**: MemoirMint ensures travel stories are preserved in a meaningful way, enriched with historical and cultural context.  
 
 ---
 
@@ -46,7 +45,6 @@ Navigate through sections like Home, Features, Itinerary Builder, Eco Calculator
 - Generating personalized itineraries with AI-driven recommendations.  
 - Calculating and reducing your travel footprint with sustainability tips.  
 - Exploring profiles of local guides and fellow travelers for cultural immersion.  
-- Creating digital scrapbooks to preserve and share travel memories.  
 
 ---
 

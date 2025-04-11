@@ -6,9 +6,9 @@ import { initChatbot } from './chatbot.js';
 import initItineraryBuilder from './itineraryBuilder.js';
 import initEcoCalculator from './ecoCalculator.js';
 import initCultureMatch from './cultureMatch.js';
-import initMemoirMint from './memoirMint.js';
 import initScrollAnimations from './animations.js';
 import initModals from './modal.js';
+import { initTranslations } from './translation.js';
 
 // Initialize all application features when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,12 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initModals();
     
+    // Initialize language selector
+    initTranslations();
+    
     // Initialize feature-specific modules
     initChatbot();
     initItineraryBuilder();
     initEcoCalculator();
     initCultureMatch();
-    initMemoirMint();
     
     console.log('YatraGPT application initialized successfully');
 }); 

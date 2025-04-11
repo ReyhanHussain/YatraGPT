@@ -46,6 +46,15 @@ const EMISSION_FACTORS = {
         'festivals': { carbon: 30, culturalExchange: 100, localEconomic: 80 },
         'workshops': { carbon: 15, culturalExchange: 90, localEconomic: 90 },
         'food': { carbon: 25, culturalExchange: 85, localEconomic: 75 }
+    },
+    // Carbon offset data
+    offset: {
+        treePerKg: 0.05, // 1 tree offsets about 20kg CO2 per year
+        costPerTree: 5,  // $5 per tree
+        renewableKwhPerKg: 2, // 1 kWh renewable energy prevents ~0.5kg CO2
+        costPerKwh: 0.015, // $0.015 per kWh
+        localProjectPerKg: 0.2, // local cultural preservation per kg carbon
+        costPerLocalProject: 10 // $10 per unit
     }
 };
 
@@ -131,6 +140,38 @@ const calculateActivitiesImpact = (activities) => {
         carbon: totalCarbon,
         culturalExchange: totalCulturalExchange,
         localEconomic: totalLocalEconomic
+    };
+};
+
+// Calculate carbon offset options
+const calculateCarbonOffsets = (carbonValue) => {
+    const offsetFactors = EMISSION_FACTORS.offset;
+    
+    // Calculate tree planting offset
+    const treesNeeded = Math.ceil(carbonValue * offsetFactors.treePerKg);
+    const treeCost = Math.round(treesNeeded * offsetFactors.costPerTree);
+    
+    // Calculate renewable energy investment
+    const kwhNeeded = Math.ceil(carbonValue * offsetFactors.renewableKwhPerKg);
+    const kwhCost = Math.round(kwhNeeded * offsetFactors.costPerKwh);
+    
+    // Calculate local cultural preservation project support
+    const localProjectUnits = Math.ceil(carbonValue * offsetFactors.localProjectPerKg);
+    const localProjectCost = Math.round(localProjectUnits * offsetFactors.costPerLocalProject);
+    
+    return {
+        trees: {
+            amount: treesNeeded,
+            cost: treeCost
+        },
+        renewableEnergy: {
+            amount: kwhNeeded,
+            cost: kwhCost
+        },
+        localProject: {
+            amount: localProjectUnits,
+            cost: localProjectCost
+        }
     };
 };
 
@@ -255,6 +296,9 @@ const calculateFootprint = (transportType, distance, accommodation, activities, 
         localEconomicValue
     );
     
+    // Calculate carbon offset options
+    const offsetOptions = calculateCarbonOffsets(carbonValue);
+    
     return {
         carbon: {
             percentage: carbonPercentage,
@@ -268,7 +312,8 @@ const calculateFootprint = (transportType, distance, accommodation, activities, 
             percentage: localEconomicPercentage,
             text: getLocalEconomicText(localEconomicValue)
         },
-        recommendations: recommendations
+        recommendations: recommendations,
+        offsetOptions: offsetOptions
     };
 };
 
@@ -277,6 +322,9 @@ const updateCalculatorResultsFromData = (result) => {
     const resultsCard = document.querySelector('.results-card');
     
     if (resultsCard) {
+        // Make the calculator results visible
+        document.querySelector('.calculator-results').classList.add('active');
+        
         // Update carbon footprint meter
         const carbonMeter = resultsCard.querySelector('.impact-meter:nth-child(1) .meter-fill');
         const carbonValue = resultsCard.querySelector('.impact-meter:nth-child(1) span:last-child');
@@ -306,12 +354,115 @@ const updateCalculatorResultsFromData = (result) => {
                 .map(recommendation => `<li>${recommendation}</li>`)
                 .join('');
         }
+        
+        // Create or update carbon offset section
+        let offsetSection = resultsCard.querySelector('.carbon-offset');
+        
+        if (!offsetSection) {
+            // Create offset section if it doesn't exist
+            offsetSection = document.createElement('div');
+            offsetSection.className = 'carbon-offset';
+            offsetSection.innerHTML = `
+                <h4>Carbon Offset Options</h4>
+                <p>Offset your ${result.carbon.value}kg CO₂ footprint through these options:</p>
+                <div class="offset-options"></div>
+            `;
+            resultsCard.appendChild(offsetSection);
+        } else {
+            // Update the existing offset section content
+            offsetSection.querySelector('p').textContent = `Offset your ${result.carbon.value}kg CO₂ footprint through these options:`;
+        }
+        
+        // Create or update offset options
+        const offsetOptionsContainer = offsetSection.querySelector('.offset-options');
+        offsetOptionsContainer.innerHTML = '';
+        
+        // Tree planting option
+        const treeOption = document.createElement('div');
+        treeOption.className = 'offset-option';
+        treeOption.innerHTML = `
+            <div class="offset-icon"><i class="fas fa-tree"></i></div>
+            <div class="offset-details">
+                <h5>Plant Trees</h5>
+                <p>Plant ${result.offsetOptions.trees.amount} trees to offset your carbon footprint.</p>
+                <span class="offset-cost">Estimated cost: $${result.offsetOptions.trees.cost}</span>
+                <div class="donate-links">
+                    <span class="donate-label">Donate:</span>
+                    <div class="donate-buttons">
+                        <a href="https://onetreeplanted.org/products/plant-trees-for-earth-day" target="_blank" class="donate-btn">
+                            <i class="fas fa-leaf"></i> One Tree Planted
+                        </a>
+                        <a href="https://teamtrees.org" target="_blank" class="donate-btn">
+                            <i class="fas fa-tree"></i> Team Trees
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        offsetOptionsContainer.appendChild(treeOption);
+        
+        // Renewable energy option
+        const renewableOption = document.createElement('div');
+        renewableOption.className = 'offset-option';
+        renewableOption.innerHTML = `
+            <div class="offset-icon"><i class="fas fa-solar-panel"></i></div>
+            <div class="offset-details">
+                <h5>Support Renewable Energy</h5>
+                <p>Fund ${result.offsetOptions.renewableEnergy.amount} kWh of clean energy production.</p>
+                <span class="offset-cost">Estimated cost: $${result.offsetOptions.renewableEnergy.cost}</span>
+                <div class="donate-links">
+                    <span class="donate-label">Donate:</span>
+                    <div class="donate-buttons">
+                        <a href="https://goldstandard.org/take-action/donate" target="_blank" class="donate-btn">
+                            <i class="fas fa-sun"></i> Gold Standard
+                        </a>
+                        <a href="https://www.atmosfair.de/en/donate/" target="_blank" class="donate-btn">
+                            <i class="fas fa-globe"></i> Atmosfair
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        offsetOptionsContainer.appendChild(renewableOption);
+        
+        // Local cultural project option
+        const localOption = document.createElement('div');
+        localOption.className = 'offset-option';
+        localOption.innerHTML = `
+            <div class="offset-icon"><i class="fas fa-hands-helping"></i></div>
+            <div class="offset-details">
+                <h5>Support Cultural Preservation</h5>
+                <p>Fund local cultural preservation projects in your destination.</p>
+                <span class="offset-cost">Estimated cost: $${result.offsetOptions.localProject.cost}</span>
+                <div class="donate-links">
+                    <span class="donate-label">Donate:</span>
+                    <div class="donate-buttons">
+                        <a href="https://www.paypal.com/donate/?hosted_button_id=TGDETY5ERSUQU" target="_blank" class="donate-btn">
+                            <i class="fas fa-landmark"></i> UNESCO
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+        offsetOptionsContainer.appendChild(localOption);
     }
 };
 
 // Initialize the calculator
 const initCalculator = () => {
     const calculateButton = document.querySelector('.calculate-btn');
+    const resultsSection = document.querySelector('.calculator-results');
+    
+    // Hide the results card initially, show only placeholder
+    if (resultsSection) {
+        const placeholderMessage = resultsSection.querySelector('.placeholder-message');
+        const resultsCard = resultsSection.querySelector('.results-card');
+        
+        if (placeholderMessage && resultsCard) {
+            placeholderMessage.style.display = 'block';
+            resultsCard.style.display = 'none';
+        }
+    }
     
     if (calculateButton) {
         calculateButton.addEventListener('click', async function() {
@@ -346,6 +497,17 @@ const initCalculator = () => {
                 
                 // Simulate API delay for a smoother experience
                 await new Promise(resolve => setTimeout(resolve, 800));
+                
+                // Hide placeholder, show results card
+                if (resultsSection) {
+                    const placeholderMessage = resultsSection.querySelector('.placeholder-message');
+                    const resultsCard = resultsSection.querySelector('.results-card');
+                    
+                    if (placeholderMessage && resultsCard) {
+                        placeholderMessage.style.display = 'none';
+                        resultsCard.style.display = 'block';
+                    }
+                }
                 
                 // Get footprint calculation directly from local function
                 const result = calculateFootprint(
