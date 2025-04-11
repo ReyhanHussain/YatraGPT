@@ -1,12 +1,190 @@
-@import url('navbar.css');
-@import url('base.css');
-@import url('chatbot.css');
-@import url('culture-match.css');
-@import url('eco-calculator.css');
-@import url('features.css');
-@import url('footer.css');
-@import url('hero.css');
-@import url('itinerary.css');
-@import url('modal.css');
-@import url('navbar.css');
-@import url('memoir-mint.css');
+/* Main CSS file that imports all modular components */
+
+/* Base styles and variables */
+@import url('./base.css');
+
+/* Header and Navigation */
+@import url('./navbar.css');
+
+/* Hero section */
+@import url('./hero.css');
+
+/* Features section */
+@import url('./features.css');
+
+/* Itinerary section */
+@import url('./itinerary.css');
+
+/* Eco-Calculator section */
+@import url('./eco-calculator.css');
+
+/* Culture Match section */
+@import url('./culture-match.css');
+
+/* Profile Modal styles */
+@import url('./profile-modal.css');
+
+/* Modal styles */
+@import url('./modal.css');
+
+/* Fullscreen Interface styles */
+@import url('./fullscreen-interface.css');
+
+/* Memoir Mint section */
+@import url('./memoir-mint.css');
+
+/* Chatbot */
+@import url('./chatbot.css');
+
+/* Footer */
+@import url('./footer.css');
+
+/* Enhanced Itinerary Preview Styles */
+.itinerary-preview.generated {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.itinerary-preview {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.itinerary-preview .preview-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.itinerary-preview .download-btn {
+    margin-top: 1rem;
+}
+
+.itinerary-preview .preview-days {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 1rem;
+    scrollbar-width: thin;
+}
+
+.itinerary-preview .day-container {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.itinerary-preview .day-container:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 1.5rem;
+}
+
+.itinerary-preview .day-title {
+    margin: 0 0 1rem 0;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.itinerary-preview .day-activities {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.itinerary-preview .day-activities li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 1.5em;
+}
+
+.itinerary-preview .day-activities li:last-child {
+    border-bottom: none;
+}
+
+.itinerary-preview .day-activities li:before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    position: absolute;
+    left: 0.2em;
+}
+
+/* Loading and placeholder styles */
+.loading-message, .placeholder-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+}
+
+.placeholder-message i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    opacity: 0.5;
+    margin-bottom: 1rem;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spinner 1s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom scrollbar styling for preview box */
+.itinerary-preview .preview-days::-webkit-scrollbar {
+    width: 6px;
+}
+
+.itinerary-preview .preview-days::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.itinerary-preview .preview-days::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 10px;
+}
+
+.itinerary-preview .preview-days::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .itinerary-preview {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .itinerary-preview {
+        height: 350px;
+    }
+    
+    .itinerary-preview .day-container {
+        padding: 1rem;
+    }
+} 
