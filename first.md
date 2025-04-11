@@ -56,3 +56,6 @@ Navigate through sections like Home, Features, Itinerary Builder, Eco Calculator
 - Floating chat button for instant access to "Cultural AI" support.  
 
 ---
+
+
+
