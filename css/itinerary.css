@@ -1,0 +1,339 @@
+/* Itinerary Section */
+.itinerary {
+    padding: var(--section-padding);
+    background-color: var(--background-color);
+}
+
+.section-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.itinerary-form {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    height: 100%;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.form-group input, 
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    transition: var(--transition);
+}
+
+.form-group input:focus, 
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+}
+
+.interests-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: #f9f9f9;
+}
+
+.interest-tag {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.interest-tag i {
+    cursor: pointer;
+}
+
+#add-interest {
+    border: none;
+    padding: 0.4rem;
+    flex: 1;
+    min-width: 100px;
+    background: transparent;
+}
+
+#add-interest:focus {
+    outline: none;
+}
+
+/* Duration select styling */
+#duration {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.slider-container span {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+input[type="range"] {
+    flex: 1;
+    /* Range styles now inherited from base.css */
+}
+
+.generate-btn {
+    width: 100%;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.9rem;
+    font-weight: 500;
+}
+
+.section-visual {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+}
+
+.itinerary-preview {
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    padding: 2rem;
+    transform: rotate(2deg);
+    position: relative;
+    transition: var(--transition);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Generated state - clean interface without rotation */
+.itinerary-preview.generated {
+    transform: rotate(0deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.itinerary-preview.generated::before {
+    display: none; /* Remove dashed border for generated state */
+}
+
+.itinerary-preview:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.itinerary-preview::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    border: 2px dashed var(--secondary-color);
+    border-radius: var(--border-radius);
+    z-index: -1;
+}
+
+.preview-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #ddd;
+    position: relative;
+}
+
+/* Download button in the header */
+.download-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.preview-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+}
+
+.preview-header h3 {
+    color: var(--primary-color);
+}
+
+.preview-days {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+/* Placeholder message styling */
+.placeholder-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #999;
+    flex: 1;
+}
+
+.placeholder-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    opacity: 0.4;
+}
+
+.placeholder-message p {
+    font-size: 1.1rem;
+    max-width: 80%;
+}
+
+.day-card {
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 3px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+/* Day header with expand button */
+.day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.expand-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.expand-btn:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+/* Hide expand button in default state */
+.itinerary-preview:not(.generated) .expand-btn {
+    display: none;
+}
+
+/* Day content area */
+.day-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+/* In generated state, initially collapse content */
+.itinerary-preview.generated .day-card:not(.expanded) .day-content {
+    max-height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Add fade effect to collapsed content */
+.itinerary-preview.generated .day-card:not(.expanded) .day-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(transparent, var(--background-color));
+}
+
+/* Expanded state */
+.itinerary-preview.generated .day-card.expanded {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.day-card h4 {
+    color: var(--accent-color);
+    margin-bottom: 0; /* Adjusted for new layout */
+}
+
+.day-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.day-card li {
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 992px) {
+    .section-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .section-visual {
+        order: -1;
+    }
+}
+
+@media (max-width: 576px) {
+    .date-inputs {
+        flex-direction: column;
+    }
+} 
