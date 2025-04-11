@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YatraGPT - Travel Smart, Connect Better, Discover Endlessly</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- jsPDF library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Optional: Font support for better PDF text rendering -->
+    <script src="https://unpkg.com/jspdf-autotable"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>YatraGPT</h1>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#itinerary">Itinerary Builder</a></li>
+                    <li><a href="#eco-calculator">Eco Calculator</a></li>
+                    <li><a href="#culture-match">CultureMatch</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>A Cultural Odyssey Through Technology</h1>
+                <p>Reimagine cultural tourism with AI-driven personalization, community engagement, and sustainability tracking.</p>
+                <div class="hero-cta">
+                    <button class="btn primary">Start Your Journey</button>
+                    <button class="btn secondary">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="globe-animation"></div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2 class="section-title">Discover Our Unique Features</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-route"></i></div>
+                    <h3>AI-Powered Itinerary Builder</h3>
+                    <p>Create personalized, day-by-day travel plans blending must-see landmarks with hidden cultural gems.</p>
+                    <a href="#itinerary" class="feature-link">Explore <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Eco-Cultural Footprint</h3>
+                    <p>Calculate your environmental impact and discover sustainable alternatives for your journey.</p>
+                    <a href="#eco-calculator" class="feature-link">Calculate <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3>CultureMatch</h3>
+                    <p>Connect with local guides and like-minded travelers for authentic cultural experiences.</p>
+                    <a href="#culture-match" class="feature-link">Connect <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-book"></i></div>
+                    <h3>MemoirMint</h3>
+                    <p>Transform your memories into digital scrapbooks enriched with historical context.</p>
+                    <a href="#memoir-mint" class="feature-link">Create <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="itinerary" class="itinerary">
+            <div class="section-container">
+                <div class="section-content">
+                    <h2 class="section-title">AI-Powered Cultural Itinerary Builder</h2>
+                    <p class="section-description">Let our advanced AI create the perfect cultural journey tailored to your preferences.</p>
+                    <div class="itinerary-form">
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <input type="text" id="destination" placeholder="Where are you going?">
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Trip Duration</label>
+                            <select id="duration">
+                                <option value="2">Weekend (2 days)</option>
+                                <option value="3">Short Trip (3 days)</option>
+                                <option value="5">Medium Trip (5 days)</option>
+                                <option value="7">One Week (7 days)</option>
+                                <option value="14">Two Weeks (14 days)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Interests</label>
+                            <div class="interests-container">
+                                <div class="interest-tag">Art <i class="fas fa-times"></i></div>
+                                <div class="interest-tag">History <i class="fas fa-times"></i></div>
+                                <div class="interest-tag">Cuisine <i class="fas fa-times"></i></div>
+                                <div class="interest-tag">Architecture <i class="fas fa-times"></i></div>
+                                <input type="text" id="add-interest" placeholder="Add interest...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pace">Travel Pace</label>
+                            <div class="slider-container">
+                                <span>Relaxed</span>
+                                <input type="range" id="pace" min="1" max="5" value="3">
+                                <span>Intense</span>
+                            </div>
+                        </div>
+                        <button class="btn primary generate-btn">Generate Itinerary</button>
+                    </div>
+                </div>
+                <div class="section-visual">
+                    <div class="itinerary-preview">
+                        <div class="preview-header">
+                            <h3>Your Cultural Journey</h3>
+                            <p>Florence, Italy</p>
+                        </div>
+                        <div class="preview-days">
+                            <div class="day-card">
+                                <h4>Day 1: Renaissance Wonders</h4>
+                                <ul>
+                                    <li>Uffizi Gallery (9AM-12PM)</li>
+                                    <li>Local lunch at Mercato Centrale</li>
+                                    <li>Palazzo Pitti & Boboli Gardens</li>
+                                    <li>Evening cooking class with local chef</li>
+                                </ul>
+                            </div>
+                            <div class="day-card">
+                                <h4>Day 2: Hidden Florence</h4>
+                                <ul>
+                                    <li>Morning at Bardini Gardens</li>
+                                    <li>Artisan workshop visit in Oltrarno</li>
+                                    <li>Local's recommended trattoria</li>
+                                    <li>Evening concert at Chiesa di Santa Monaca</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="eco-calculator" class="eco-calculator">
+            <h2 class="section-title">Eco-Cultural Footprint Calculator</h2>
+            <p class="section-description">Measure the environmental and cultural impact of your journey.</p>
+            
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label>Transportation</label>
+                        <div class="transport-options">
+                            <div class="transport-option selected">
+                                <i class="fas fa-plane"></i>
+                                <span>Flight</span>
+                            </div>
+                            <div class="transport-option">
+                                <i class="fas fa-train"></i>
+                                <span>Train</span>
+                            </div>
+                            <div class="transport-option">
+                                <i class="fas fa-bus"></i>
+                                <span>Bus</span>
+                            </div>
+                            <div class="transport-option">
+                                <i class="fas fa-car"></i>
+                                <span>Car</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="distance">Distance (km)</label>
+                        <input type="number" id="distance" value="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="accommodation">Accommodation Type</label>
+                        <select id="accommodation">
+                            <option value="hotel">Hotel</option>
+                            <option value="hostel">Hostel</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="eco-lodge">Eco Lodge</option>
+                            <option value="homestay">Homestay</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Cultural Activities</label>
+                        <div class="activity-options">
+                            <div class="activity-option" data-value="museums">
+                                <i class="fas fa-landmark"></i>
+                                <span>Museums & Galleries</span>
+                            </div>
+                            <div class="activity-option" data-value="historical">
+                                <i class="fas fa-monument"></i>
+                                <span>Historical Sites</span>
+                            </div>
+                            <div class="activity-option" data-value="festivals">
+                                <i class="fas fa-music"></i>
+                                <span>Local Festivals</span>
+                            </div>
+                            <div class="activity-option" data-value="workshops">
+                                <i class="fas fa-hands"></i>
+                                <span>Traditional Workshops</span>
+                            </div>
+                            <div class="activity-option" data-value="food">
+                                <i class="fas fa-utensils"></i>
+                                <span>Local Cuisine</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn primary calculate-btn">Calculate Footprint</button>
+                </div>
+                <div class="calculator-results">
+                    <div class="results-card">
+                        <h3>Your Impact</h3>
+                        <div class="impact-meters">
+                            <div class="impact-meter">
+                                <span>Carbon Footprint</span>
+                                <div class="meter-bar">
+                                    <div class="meter-fill" style="width: 65%;"></div>
+                                </div>
+                                <span>650kg CO₂</span>
+                            </div>
+                            <div class="impact-meter">
+                                <span>Cultural Exchange</span>
+                                <div class="meter-bar">
+                                    <div class="meter-fill positive" style="width: 85%;"></div>
+                                </div>
+                                <span>Very High</span>
+                            </div>
+                            <div class="impact-meter">
+                                <span>Local Economic Support</span>
+                                <div class="meter-bar">
+                                    <div class="meter-fill positive" style="width: 70%;"></div>
+                                </div>
+                                <span>High</span>
+                            </div>
+                        </div>
+                        <div class="recommendations">
+                            <h4>Recommendations</h4>
+                            <ul>
+                                <li>Consider train travel to reduce emissions by 70%</li>
+                                <li>Choose homestays for authentic cultural exchange</li>
+                                <li>Support local artisans through workshops</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="culture-match" class="culture-match">
+            <h2 class="section-title">CultureMatch</h2>
+            <p class="section-description">Connect with locals and like-minded travelers for authentic experiences.</p>
+            
+            <div class="match-container">
+                <div class="match-preview">
+                    <div class="preview-cards">
+                        <div class="preview-card">
+                            <div class="preview-img" style="background-image: url('https://source.unsplash.com/random/400x400/?italian,man')"></div>
+                            <div class="preview-badge">Local Guide</div>
+                            <div class="preview-info">
+                                <h3>Marco, 34</h3>
+                                <p>Florence, Italy</p>
+                                <div class="preview-interests">
+                                    <span>Art</span>
+                                    <span>History</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-card">
+                            <div class="preview-img" style="background-image: url('https://source.unsplash.com/random/400x400/?japanese,woman')"></div>
+                            <div class="preview-badge">Local Guide</div>
+                            <div class="preview-info">
+                                <h3>Yuki, 29</h3>
+                                <p>Kyoto, Japan</p>
+                                <div class="preview-interests">
+                                    <span>Tea Ceremony</span>
+                                    <span>Cuisine</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="preview-card">
+                            <div class="preview-img" style="background-image: url('https://source.unsplash.com/random/400x400/?french,woman')"></div>
+                            <div class="preview-badge">Traveler</div>
+                            <div class="preview-info">
+                                <h3>Sophie, 27</h3>
+                                <p>Paris, France</p>
+                                <div class="preview-interests">
+                                    <span>Art</span>
+                                    <span>Architecture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="database-message">
+                        <p>Explore our curated database of <strong>local guides</strong> and <strong>fellow travelers</strong> to connect with authentic cultural experiences worldwide.</p>
+                    </div>
+                </div>
+                <div class="match-explanation">
+                    <h3>Cultural Connections Database</h3>
+                    <div class="step-cards">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Search by Location</h4>
+                            <p>Find cultural connections in destinations you're planning to visit, or connect with travelers coming to your city.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Filter by Interests</h4>
+                            <p>Narrow down your search by specific cultural interests, from art and history to cuisine and music.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Connect & Experience</h4>
+                            <p>Message your matches and plan authentic cultural experiences together, guided by locals or shared with fellow travelers.</p>
+                        </div>
+                    </div>
+                    <button class="btn primary">Create Profile</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="memoir-mint" class="memoir-mint">
+            <h2 class="section-title">MemoirMint</h2>
+            <p class="section-description">Transform your travel memories into digital scrapbooks with historical context.</p>
+            
+            <div class="memoir-container">
+                <div class="memoir-preview">
+                    <div class="scrapbook">
+                        <div class="scrapbook-page">
+                            <div class="page-header">
+                                <h3>Florence Journey</h3>
+                                <p>June 2023</p>
+                            </div>
+                            <div class="memory-grid">
+                                <div class="memory-item" style="background-image: url('https://source.unsplash.com/random/300x300/?florence')">
+                                    <div class="memory-caption">Ponte Vecchio at sunset</div>
+                                </div>
+                                <div class="memory-item" style="background-image: url('https://source.unsplash.com/random/300x300/?italian-food')">
+                                    <div class="memory-caption">First authentic Italian pasta</div>
+                                </div>
+                                <div class="memory-item" style="background-image: url('https://source.unsplash.com/random/300x300/?tuscany')">
+                                    <div class="memory-caption">Tuscan countryside tour</div>
+                                </div>
+                                <div class="memory-item historical">
+                                    <div class="memory-fact">
+                                        <h4>Did You Know?</h4>
+                                        <p>Ponte Vecchio is the only bridge in Florence that wasn't destroyed during World War II. Legend says Hitler himself ordered it to be spared.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="memoir-creator">
+                    <h3>Create Your Digital Memoir</h3>
+                    <p>Upload your photos and notes, and we'll transform them into a beautiful digital scrapbook enhanced with historical context.</p>
+                    <div class="upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop photos or click to upload</p>
+                        <input type="file" id="photo-upload" multiple hidden>
+                    </div>
+                    <div class="form-group">
+                        <label for="journey-title">Journey Title</label>
+                        <input type="text" id="journey-title" placeholder="My Amazing Adventure">
+                    </div>
+                    <div class="form-group">
+                        <label for="journey-dates">Journey Dates</label>
+                        <div class="date-inputs">
+                            <input type="date" id="journey-start">
+                            <span>to</span>
+                            <input type="date" id="journey-end">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="journey-description">Journey Description</label>
+                        <textarea id="journey-description" placeholder="Share a brief description of your journey..."></textarea>
+                    </div>
+                    <button class="btn primary">Create Memoir</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>YatraGPT</h2>
+                <p>Travel Smart, Connect Better, Discover Endlessly</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><a href="#itinerary">AI Itinerary Builder</a></li>
+                        <li><a href="#eco-calculator">Eco-Cultural Calculator</a></li>
+                        <li><a href="#culture-match">CultureMatch</a></li>
+                        <li><a href="#memoir-mint">MemoirMint</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#" data-modal="aboutModal">About Us</a></li>
+                        <li><a href="#" data-modal="missionModal">Our Mission</a></li>
+                        <li><a href="#" data-modal="careersModal">Careers</a></li>
+                        <li><a href="#" data-modal="contactModal">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Cultural Guides</a></li>
+                        <li><a href="#">Sustainability Tips</a></li>
+                        <li><a href="#">Community Stories</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <div class="newsletter">
+                    <input type="email" placeholder="Join our newsletter">
+                    <button class="btn primary">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; YatraGPT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="floating-chat-button">
+        <i class="fas fa-comments"></i>
+        <span class="chat-tooltip">Ask our Cultural AI!</span>
+    </div>
+
+    <!-- Modal Structure -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>About Us</h2>
+            <div class="modal-body">
+                <p>YatraGPT was founded in 2025 with a vision to revolutionize cultural tourism through technology. Our team of passionate travelers, technologists, and cultural experts came together to create a platform that bridges the gap between traditional tourism and modern technology.</p>
+                <p>We believe that every journey should be more than just a vacation - it should be an opportunity to connect with different cultures, understand their heritage, and contribute positively to the communities we visit.</p>
+                <p>Today, YatraGPT serves travelers worldwide, helping them discover authentic cultural experiences while promoting sustainable tourism practices.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="missionModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Our Mission</h2>
+            <div class="modal-body">
+                <p>Our mission is to transform cultural tourism by:</p>
+                <ul>
+                    <li>Making cultural experiences accessible to everyone through technology</li>
+                    <li>Promoting sustainable and responsible tourism practices</li>
+                    <li>Supporting local communities and preserving cultural heritage</li>
+                    <li>Fostering meaningful connections between travelers and local cultures</li>
+                    <li>Using AI to create personalized cultural experiences</li>
+                </ul>
+                <p>We strive to be the leading platform that connects travelers with authentic cultural experiences while ensuring the preservation and celebration of global heritage.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="careersModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Careers at YatraGPT</h2>
+            <div class="modal-body">
+                <p>Join our team of passionate individuals who are making a difference in cultural tourism!</p>
+                <div class="careers-grid">
+                    <div class="career-card">
+                        <h3>Software Engineer</h3>
+                        <p>Help us build the next generation of cultural tourism technology</p>
+                        <button class="btn secondary" data-career="Software Engineer">Apply Now</button>
+                    </div>
+                    <div class="career-card">
+                        <h3>Cultural Content Specialist</h3>
+                        <p>Create engaging content that brings destinations to life</p>
+                        <button class="btn secondary" data-career="Cultural Content Specialist">Apply Now</button>
+                    </div>
+                    <div class="career-card">
+                        <h3>UX Designer</h3>
+                        <p>Design intuitive experiences for cultural exploration</p>
+                        <button class="btn secondary" data-career="UX Designer">Apply Now</button>
+                    </div>
+                </div>
+                <p class="careers-note">Don't see the perfect role? We're always looking for talented individuals. Send us your resume at careers@Yatra-Gpt.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Contact Us</h2>
+            <div class="modal-body">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Email: info@Yatra-Gpt.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>Phone: +91 9999999999</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Address: BGSCET, Mahalakshmipuram, Bangalore</p>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Technical Support</option>
+                            <option value="partnership">Partnership</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="career">Career Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
