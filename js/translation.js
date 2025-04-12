@@ -23,6 +23,11 @@ const translations = {
         "hi": "संस्कृति मिलान",
         "kn": "ಸಂಸ್ಕೃತಿ ಹೊಂದಾಣಿಕೆ"
     },
+    "hiddenGems": {
+        "en": "Hidden Gems",
+        "hi": "छिपे हुए रत्न",
+        "kn": "ಮರೆಯಾಗಿರುವ ರತ್ನಗಳು"
+    },
     "contact": {
         "en": "Contact",
         "hi": "संपर्क",
@@ -339,6 +344,71 @@ const translations = {
         "en": "Subscribe",
         "hi": "सदस्यता लें",
         "kn": "ಚಂದಾದಾರರಾಗಿ"
+    },
+    "footerTagline": {
+        "en": "A Cultural Odyssey Through Technology",
+        "hi": "प्रौद्योगिकी के माध्यम से एक सांस्कृतिक यात्रा",
+        "kn": "ತಂತ್ರಜ್ಞಾನದ ಮೂಲಕ ಸಾಂಸ್ಕೃತಿಕ ಓಡಿಸಿ"
+    },
+    "footerFeatures": {
+        "en": "Features",
+        "hi": "विशेषताएं",
+        "kn": "ವೈಶಿಷ್ಟ್ಯಗಳು"
+    },
+    "footerCompany": {
+        "en": "Company",
+        "hi": "कंपनी",
+        "kn": "ಕಂಪನಿ"
+    },
+    "aboutUs": {
+        "en": "About Us",
+        "hi": "हमारे बारे में",
+        "kn": "ನಮ್ಮ ಬಗ್ಗೆ"
+    },
+    "ourMission": {
+        "en": "Our Mission",
+        "hi": "हमारा मिशन",
+        "kn": "ನಮ್ಮ ಧ್ಯೇಯ"
+    },
+    "careers": {
+        "en": "Careers",
+        "hi": "करियर",
+        "kn": "ಉದ್ಯೋಗಾವಕಾಶಗಳು"
+    },
+    "contactUs": {
+        "en": "Contact Us",
+        "hi": "संपर्क करें",
+        "kn": "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ"
+    },
+    "footerResources": {
+        "en": "Resources",
+        "hi": "संसाधन",
+        "kn": "ಸಂಪನ್ಮೂಲಗಳು"
+    },
+    "blog": {
+        "en": "Blog",
+        "hi": "ब्लॉग",
+        "kn": "ಬ್ಲಾಗ್"
+    },
+    "culturalGuides": {
+        "en": "Cultural Guides",
+        "hi": "सांस्कृतिक मार्गदर्शिकाएँ",
+        "kn": "ಸಾಂಸ್ಕೃತಿಕ ಮಾರ್ಗದರ್ಶಿಗಳು"
+    },
+    "sustainabilityTips": {
+        "en": "Sustainability Tips",
+        "hi": "सतत विकास के सुझाव",
+        "kn": "ಸುಸ್ಥಿರತೆ ಸಲಹೆಗಳು"
+    },
+    "communityStories": {
+        "en": "Community Stories",
+        "hi": "समुदाय की कहानियां",
+        "kn": "ಸಮುದಾಯದ ಕಥೆಗಳು"
+    },
+    "connectWithUs": {
+        "en": "Connect With Us",
+        "hi": "हमसे जुड़ें",
+        "kn": "ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ"
     },
     
     // Floating chat
