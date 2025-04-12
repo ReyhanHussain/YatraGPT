@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YatraGPT - A Cultural Odyssey Through Technology</title>
+    <!-- Favicon -->
+    <link rel="icon" href="./Images/LOGO.png" type="image/png">
+    <link rel="shortcut icon" href="./Images/LOGO.png" type="image/png">
+    <link rel="apple-touch-icon" href="./Images/LOGO.png">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -54,7 +58,7 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="globe-animation"></div>
+                <img src="./Images/hero-cultural-journey.png" alt="Cultural journey visual showing diverse travel experiences">
             </div>
         </section>
 
@@ -78,6 +82,12 @@
                     <h3 data-translate="cultureMatchTitle">CultureMatch</h3>
                     <p data-translate="cultureMatchDesc">Connect with local guides and like-minded travelers for authentic cultural experiences.</p>
                     <a href="#culture-match" class="feature-link"><span data-translate="connect">Connect</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3 data-translate="hiddenGemsTitle">Hidden Gems of India</h3>
+                    <p data-translate="hiddenGemsDesc">Discover lesser-known destinations across India's diverse regions for authentic experiences.</p>
+                    <a href="#hidden-gems" class="feature-link"><span data-translate="discover">Discover</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -200,23 +210,35 @@
                         <div class="activity-options">
                             <div class="activity-option" data-value="museums">
                                 <i class="fas fa-landmark"></i>
-                                <span data-translate="museumsGalleries">Museums & Galleries</span>
+                                <span data-translate="museumsGalleries">Museums</span>
                             </div>
                             <div class="activity-option" data-value="historical">
                                 <i class="fas fa-monument"></i>
-                                <span data-translate="historicalSites">Historical Sites</span>
+                                <span data-translate="historicalSites">Historical</span>
                             </div>
                             <div class="activity-option" data-value="festivals">
                                 <i class="fas fa-music"></i>
-                                <span data-translate="localFestivals">Local Festivals</span>
+                                <span data-translate="localFestivals">Festivals</span>
                             </div>
                             <div class="activity-option" data-value="workshops">
                                 <i class="fas fa-hands"></i>
-                                <span data-translate="traditionalWorkshops">Traditional Workshops</span>
+                                <span data-translate="traditionalWorkshops">Workshops</span>
                             </div>
                             <div class="activity-option" data-value="food">
                                 <i class="fas fa-utensils"></i>
-                                <span data-translate="localCuisine">Local Cuisine</span>
+                                <span data-translate="localCuisine">Cuisine</span>
+                            </div>
+                            <div class="activity-option" data-value="markets">
+                                <i class="fas fa-store"></i>
+                                <span data-translate="localMarkets">Markets</span>
+                            </div>
+                            <div class="activity-option" data-value="community">
+                                <i class="fas fa-users"></i>
+                                <span data-translate="communityService">Community</span>
+                            </div>
+                            <div class="activity-option" data-value="craft">
+                                <i class="fas fa-paint-brush"></i>
+                                <span data-translate="traditionalCrafts">Crafts</span>
                             </div>
                         </div>
                     </div>
@@ -292,7 +314,7 @@
                 <div class="match-preview">
                     <div class="preview-cards">
                         <div class="preview-card">
-                            <div class="preview-img" style="background-image: url('https://source.unsplash.com/random/400x400/?italian,man')"></div>
+                            <div class="preview-img" style="background-image: url('https://as1.ftcdn.net/jpg/02/56/42/34/1000_F_256423484_Y3x3oDTmVbo0IvAKMfM6OwXopbZBTjZr.jpg')"></div>
                             <div class="preview-badge" data-translate="localGuide">Local Guide</div>
                             <div class="preview-info">
                                 <h3>Marco, 34</h3>
@@ -565,19 +587,19 @@
                                 <label for="difficulty-filter">Difficulty:</label>
                                 <select id="difficulty-filter" class="filter-select">
                                     <option value="all">All Levels</option>
-                                    <option value="easy">Easy</option>
-                                    <option value="moderate">Moderate</option>
-                                    <option value="difficult">Difficult</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="Moderate">Moderate</option>
+                                    <option value="Difficult">Difficult</option>
                                 </select>
                             </div>
                             <div class="filter-group">
                                 <label for="crowd-filter">Crowd Level:</label>
                                 <select id="crowd-filter" class="filter-select">
                                     <option value="all">All Levels</option>
-                                    <option value="very-low">Very Low</option>
-                                    <option value="low">Low</option>
-                                    <option value="medium">Medium</option>
-                                    <option value="high">High</option>
+                                    <option value="Very-Low">Very Low</option>
+                                    <option value="Low">Low</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="High">High</option>
                                 </select>
                             </div>
                         </div>

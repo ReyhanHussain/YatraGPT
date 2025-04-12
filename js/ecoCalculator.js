@@ -22,6 +22,29 @@ const initActivityOptions = () => {
             this.classList.toggle('selected');
         });
     });
+    
+    // Select museums by default
+    const defaultActivity = document.querySelector('.activity-option[data-value="museums"]');
+    if (defaultActivity) {
+        defaultActivity.classList.add('selected');
+    }
+};
+
+// Helper function to update the activity selection count display
+const updateActivitySelectionCount = () => {
+    const selectedActivities = document.querySelectorAll('.activity-option.selected');
+    const activityLabel = document.querySelector('label[data-translate="culturalActivities"]');
+    
+    if (activityLabel) {
+        const baseText = activityLabel.getAttribute('data-original-text') || activityLabel.textContent;
+        activityLabel.setAttribute('data-original-text', baseText);
+        
+        if (selectedActivities.length > 0) {
+            activityLabel.textContent = `${baseText} (${selectedActivities.length} selected)`;
+        } else {
+            activityLabel.textContent = baseText;
+        }
+    }
 };
 
 // Data sources for emission factors and impact scores
@@ -45,7 +68,12 @@ const EMISSION_FACTORS = {
         'historical': { carbon: 5, culturalExchange: 90, localEconomic: 50 },
         'festivals': { carbon: 30, culturalExchange: 100, localEconomic: 80 },
         'workshops': { carbon: 15, culturalExchange: 90, localEconomic: 90 },
-        'food': { carbon: 25, culturalExchange: 85, localEconomic: 75 }
+        'food': { carbon: 25, culturalExchange: 85, localEconomic: 75 },
+        'spiritual': { carbon: 5, culturalExchange: 95, localEconomic: 60 },
+        'craft': { carbon: 10, culturalExchange: 90, localEconomic: 85 },
+        'dance': { carbon: 15, culturalExchange: 100, localEconomic: 70 },
+        'markets': { carbon: 20, culturalExchange: 80, localEconomic: 95 },
+        'community': { carbon: 15, culturalExchange: 100, localEconomic: 100 }
     },
     // Carbon offset data
     offset: {
@@ -182,53 +210,35 @@ const generateRecommendations = (transportType, accommodation, activities, carbo
     // Carbon reduction recommendations
     if (transportType === 'Flight') {
         recommendations.push("Consider train travel to reduce emissions by up to 70%");
-        recommendations.push("If flying is necessary, consider carbon offset programs");
     } else if (transportType === 'Car') {
         recommendations.push("Consider carpooling to reduce per-person emissions");
-        recommendations.push("Public transportation like trains or buses can reduce your carbon footprint");
     }
     
     // Accommodation recommendations
     if (accommodation === 'hotel') {
         recommendations.push("Homestays and eco-lodges offer more authentic cultural experiences with lower environmental impact");
-    } else if (accommodation === 'apartment') {
-        recommendations.push("Look for locally-owned accommodations to increase your positive economic impact");
     }
     
-    // Activities recommendations
+    // Activities recommendations - simple version
     if (!activities.includes('workshops')) {
-        recommendations.push("Participate in local workshops to support artisans and gain hands-on cultural experience");
+        recommendations.push("Participate in local workshops for hands-on cultural experience");
     }
     
     if (!activities.includes('food')) {
-        recommendations.push("Explore local cuisine for a deeper cultural connection and to support local food economy");
+        recommendations.push("Explore local cuisine for a deeper cultural connection");
+    }
+    
+    if (!activities.includes('markets')) {
+        recommendations.push("Visit cultural markets to support local artisans");
     }
     
     if (activities.length < 3) {
         recommendations.push("Diversify your cultural activities for a richer travel experience");
     }
     
-    // Recommendations based on impact scores
-    if (culturalExchangeValue < 60) {
-        recommendations.push("Seek opportunities to interact with locals through community-based tourism initiatives");
-    }
-    
-    if (localEconomicValue < 60) {
-        recommendations.push("Shop at local markets and small businesses to increase your positive economic impact");
-    }
-    
     // Limit to 4 most relevant recommendations
     if (recommendations.length > 4) {
         recommendations.length = 4;
-    }
-    
-    // If no specific recommendations, provide general advice
-    if (recommendations.length === 0) {
-        recommendations.push(
-            "Your travel plan already balances sustainability and cultural engagement well",
-            "Research local customs and learn basic phrases before your trip",
-            "Consider hiring local guides for deeper insights into the destination"
-        );
     }
     
     return recommendations;

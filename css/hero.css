@@ -39,6 +39,12 @@
     align-items: center;
 }
 
+.hero-visual img {
+    max-height: 550px;
+    object-fit: contain;
+    margin-top: 80px;
+}
+
 .globe-animation {
     width: 450px;
     height: 450px;
@@ -83,6 +89,10 @@
         justify-content: center;
     }
     
+    .hero-visual img {
+        max-height: 320px;
+    }
+    
     .globe-animation {
         width: 300px;
         height: 300px;
@@ -96,5 +106,9 @@
     
     .hero-cta {
         flex-direction: column;
+    }
+    
+    .hero-visual img {
+        max-height: 250px;
     }
 } 
