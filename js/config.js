@@ -1,9 +1,12 @@
 // config.js - Configuration settings for YatraGPT
+import { API_KEYS, setApiKey } from './apiKey.js';
 
 // OpenRouter API Configuration
 const config = {
-    // Default API key (replace with your own in production)
-    OPENROUTER_API_KEY: localStorage.getItem('openrouter_api_key') || "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",
+    // Default API key (imported from apiKey.js)
+    get OPENROUTER_API_KEY() {
+        return API_KEYS.OPENROUTER_API_KEY;
+    },
     
     // OpenRouter API settings
     AI_MODEL: "meta-llama/llama-3.2-3b-instruct:free", // Using Meta Llama 3.2 3B model
@@ -15,17 +18,8 @@ const config = {
     // API endpoints
     OPENROUTER_ENDPOINT: 'https://openrouter.ai/api/v1/chat/completions',
     
-    // Update API key and save to localStorage
-    setApiKey: function(apiKey) {
-        if (!apiKey || typeof apiKey !== 'string' || apiKey.trim().length < 10) {
-            console.error("Invalid API key format");
-            return false;
-        }
-        this.OPENROUTER_API_KEY = apiKey;
-        localStorage.setItem('openrouter_api_key', apiKey);
-        console.log("API key updated successfully");
-        return true;
-    },
+    // Update API key using the function from apiKey.js
+    setApiKey: setApiKey,
     
     // Get current model
     getCurrentModel: function() {
