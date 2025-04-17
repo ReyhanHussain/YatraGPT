@@ -3,7 +3,7 @@
 // OpenRouter API Configuration
 const config = {
     // Default API key (replace with your own in production)
-    OPENROUTER_API_KEY: localStorage.getItem('openrouter_api_key') || "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",
+    OPENROUTER_API_KEY: localStorage.getItem('openrouter_api_key') || "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",
     
     // OpenRouter API settings
     AI_MODEL: "meta-llama/llama-3.2-3b-instruct:free", // Using Meta Llama 3.2 3B model
